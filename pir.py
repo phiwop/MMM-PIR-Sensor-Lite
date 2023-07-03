@@ -43,7 +43,7 @@ try:
 		bh1750read = bh1750.readLight()
 		print("light:"+str(bh1750read))
 
-		time.sleep(1) # Loop delay (1 second)
+		time.sleep(0.1) # Loop delay (1 second)
 
 
 finally:
