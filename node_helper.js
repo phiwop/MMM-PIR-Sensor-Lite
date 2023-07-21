@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
 		var self = this;
 		process.stdout.on('data', function(data) {
 
-			if(this.config.bh1750){
+			if(this.config.bh1750 == 1){
 				//console.log("DATA: "+data);
 				var lightLevel = String(data).match(/\d+./)
 				lightLevel = parseInt(lightLevel)

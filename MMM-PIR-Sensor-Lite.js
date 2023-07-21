@@ -13,7 +13,7 @@ Module.register("MMM-PIR-Sensor-Lite", {
 	// Default module config
 	defaults: {
 		sensorPin: 0, // GPIO pin
-		bh1750: true, // bh1750 Lightsensor present / enable
+		bh1750: 0, // bh1750 Lightsensor present / enable
 		commandType: 'xrandr', // Type of command used
 		hdmiPort: 'HDMI-1', // HDMI port for xrandr
 		title: "Standby",
