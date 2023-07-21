@@ -20,6 +20,7 @@ parser.add_argument("bh1750", type=bool, help="bh1750 present / enable")
 args = parser.parse_args()
 
 pin = args.pin
+bh1750enabled = args.bh1750
 
 # Configure GPIO
 GPIO.setmode(GPIO.BCM)
@@ -39,9 +40,10 @@ try:
 			print("USER_PRESENCE")
 			time.sleep(5) # Delay to avoid multiple detections (5 seconds)
 
-		# Read from the Light Sensor
-		bh1750read = bh1750.readLight()
-		print("light:"+str(bh1750read))
+		if bh1750enabled:
+			# Read from the Light Sensor
+			bh1750read = bh1750.readLight()
+			print("light:"+str(bh1750read))
 
 		time.sleep(0.1) # Loop delay (1 second)
 

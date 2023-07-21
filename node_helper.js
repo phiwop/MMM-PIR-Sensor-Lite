@@ -28,28 +28,31 @@ module.exports = NodeHelper.create({
 		var self = this;
 		process.stdout.on('data', function(data) {
 
-			//console.log("DATA: "+data);
-			var lightLevel = String(data).match(/\d+./)
-			lightLevel = parseInt(lightLevel)
-        	if (lightLevel > 20) {
-            	lightLevel = 20
-        	}
-        	if (lightLevel < 1) {
-            	lightLevel = 1
-        	}
+			if(this.config.bh1750){
+				//console.log("DATA: "+data);
+				var lightLevel = String(data).match(/\d+./)
+				lightLevel = parseInt(lightLevel)
+				if (lightLevel > 20) {
+					lightLevel = 20
+				}
+				if (lightLevel < 1) {
+					lightLevel = 1
+				}
 
-	        var levelcorrection = 5
-	        var level = parseInt(lightLevel * levelcorrection)
+				var levelcorrection = 5
+				var level = parseInt(lightLevel * levelcorrection)
 
-	        if(self.activated == true) {
-				//console.log("rpi-backlight -d 1 -b "+String(level));
-	        	exec("rpi-backlight -d 1 -b "+String(level), null);
+				if(self.activated == true) {
+					//console.log("rpi-backlight -d 1 -b "+String(level));
+					exec("rpi-backlight -d 1 -b "+String(level), null);
 
-	        	var pixelLevel = level/100
-	        	if (pixelLevel < 0.1) {
-	        		pixelLevel = 0.1
-	        	}
+					var pixelLevel = level/100
+					if (pixelLevel < 0.1) {
+						pixelLevel = 0.1
+					}
+				}
 			}
+			
 
 			if(data.indexOf("PIR_START") === 0) {
 				self.sendSocketNotification("STARTED", true);
