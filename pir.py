@@ -4,7 +4,6 @@
 # Import necessary libraries
 import RPi.GPIO as GPIO
 import time, argparse
-import bh1750
 
 
 # Initialize variables
@@ -29,6 +28,10 @@ GPIO.setup(pin, GPIO.IN)
 
 # Indicate PIR sensor start
 print("PIR_START")
+
+# import bh1750 if enabled
+if bh1750enabled:
+	import bh1750
 
 # Script
 try:
