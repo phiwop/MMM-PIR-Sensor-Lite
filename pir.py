@@ -21,6 +21,8 @@ args = parser.parse_args()
 pin = args.pin
 bh1750enabled = args.bh1750
 
+print("Config PIN:"+str(pin)+"| bh1750:"+str(bh1750enabled))
+
 # Configure GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
