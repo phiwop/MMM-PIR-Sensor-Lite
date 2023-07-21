@@ -13,13 +13,13 @@ pin = None
 parser = argparse.ArgumentParser()
 
 parser.add_argument("pin", type=int, help="The pin of the PIR sensor.")
-parser.add_argument("bh1750", default=True, action=argparse.BooleanOptionalAction)
+parser.add_argument("bh1750", type=str, help="is a bh7150 present?")
 
 
 args = parser.parse_args()
 
 pin = args.pin
-bh1750enabled = args.bh1750
+bh1750enabled = bool(args.bh1750)
 
 print("Config PIN:"+str(pin)+"| bh1750:"+str(bh1750enabled))
 
