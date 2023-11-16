@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grenagit/MMM-PIR-Sensor-Lite.git"
+    "url": "git+https://github.com/phiwop/MMM-PIR-Sensor-Lite.git"
   },
   "keywords": [
     "motion",
